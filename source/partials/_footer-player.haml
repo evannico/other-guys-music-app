@@ -1,0 +1,22 @@
+.footer-player
+     .audio-player{'ng-controller' => 'AudioCtrl'}
+          .audio-player__track-info.center.ng-cloak
+               .audio-player__artist.animatedMed.fadeIn
+                    %p.m0.truncate(ng-bind="currentTrack.title")
+               .audio-player__song.mt0.animatedMed.fadeIn
+                    %p.m0.grey.truncate(ng-bind="currentTrack.artist")
+          .audio-player__controls.center.mt3.mb3
+               .audio-player__volume.inline-block
+                    %i.fa.fa-volume-up(ng-click="show=!show")
+                    .volume.ng-cloak(ng-show="show")
+                         %input.vslider(data-slider-orientation="horizontal" data-slider-selection="after" data-slider-step="1" data-slider-tooltip="hide" data-slider-value="")
+               .audio-player__play.inline-block
+                    %a{href: "", "ng-click" => "PlayPauseClick()"}
+                         %i.fa.fa-play.mx3.h1{"ng-class" => "{'fa-play': audio.state !== 'playing', 'fa-pause': audio.state !== 'stopped'}"}
+               .audio-player__skip.inline-block
+                    %a{href: "", "ng-click" => "audio.PlayNextSong()"}
+                         %i.fa.fa-forward
+          #progress-bar
+               #progress
+
+

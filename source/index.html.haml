@@ -1,0 +1,21 @@
+.main
+     .logo.col-12.mx-auto.mt4
+          %a#back{href: "https://www.theotherguys.la"}
+               back to the store
+          %a{href: "https://www.theotherguys.la"}
+               %img.fit{alt: "the other guys", src: "#{image_path("logo.svg")}"}
+          -#%h1.center The Other Guys
+
+     %ul.main__archive-grid{"ng-controller" => "MixListCtrl"}
+          %li.currentMix.mix{"ng-repeat" => "mix in Mix.Mixes.array"}
+               %div{"ng-click" => "ChangeMixtape(mix)", "ng-class" => "{'mixtapes': true, 'playing': mix.id === Mix.PlayingMixID}"}
+                    %img.lazy.animated.fadeIn{:alt => "{{mix.title}}", "data-original" => "{{mix.artwork_url}}?h=250&w=250", :height => "250", :src => "/img/grey.jpg", :width => "250"}
+                    -#%span {{mix.title}}
+     %ng-view
+
+     .main__archive.ng-cloak.animatedLong.fadeIn
+
+
+= partial 'partials/footer-player'
+= partial 'partials/footer'
+
