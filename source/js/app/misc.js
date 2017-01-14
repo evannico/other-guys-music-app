@@ -14,7 +14,7 @@ $(function() {
 $(function(){
   // scroll to top when mixtape is selected
   $('.main__archive-grid').on('click', '.mixtapes', function() {
-    $('body, html').animate({scrollTop: "0px"}, 700);
+    $('body, html').animate({scrollTop: $('#playing').offset().top}, 700);
   });
 
   // volume slider
